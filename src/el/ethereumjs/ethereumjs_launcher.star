@@ -103,9 +103,10 @@ def launch(
 
 	jwt_secret = shared_utils.read_file_from_service(plan, service_name, jwt_secret_json_filepath_on_client)
 
-	# TODO: Passing empty string for metrics_url for now
+	# TODO: Passing None as metrics info for now. See #127
 	# metrics_url = "http://{0}:{1}".format(service.ip_address, METRICS_PORT_NUM)
-	ethjs_metrics_info = node_metrics.new_node_metrics_info(service_name, METRICS_PATH, "")
+	# ethjs_metrics_info = node_metrics.new_node_metrics_info(service_name, METRICS_PATH, "http://{0}:{1}".fomat(service.ip_address, METRICS_PORT_NUM))
+	ethjs_metrics_info = None
 
 	return el_client_context.new_el_client_context(
 		"ethereumjs",
